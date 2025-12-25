@@ -11,3 +11,19 @@ jobs:
     steps:
       - run: |
           echo ${{ inputs.branch }}
+
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Read version file from develop branch
+        id: get_version
+        run: |
+          echo "version=$(cat version.txt)" >> $GITHUB_OUTPUT
+          
+      # - name: Docker tag
+      #   run: |
+      #     echo "${{ steps.get_version.outputs.version }}"
+      #     echo "Extra tag: latest-dev"
+          
