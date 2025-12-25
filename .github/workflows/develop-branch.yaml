@@ -22,8 +22,8 @@ jobs:
         run: |
           echo "version=$(cat version.txt)" >> $GITHUB_OUTPUT
           
-      # - name: Docker tag
-      #   run: |
-      #     echo "${{ steps.get_version.outputs.version }}"
-      #     echo "Extra tag: latest-dev"
+      - name: Docker tag
+        run: |
+          echo "${{ steps.get_version.outputs.version }}"
+          echo "Extra tag: latest-dev"
           
